@@ -1,0 +1,40 @@
+.form {
+  border: 1px solid rgb(192, 192, 192);
+  width: calc(110 * var(--base-x));
+  min-height: calc(24 * var(--base-y));
+  margin-top: calc(5 * var(--base-y));
+  padding: 2.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  .inputs {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 16rem;
+    row-gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .inputs > div {
+    width: 37%;
+  }
+
+  button {
+    font-size: 1.4rem;
+    padding: 0.6rem 0.8rem;
+    margin-top: calc(1.7 * var(--base-y));
+    background-color: rgb(71, 118, 2);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+  }
+}

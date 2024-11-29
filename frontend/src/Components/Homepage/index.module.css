@@ -1,0 +1,90 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100 * var(--base-x));
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(183, 182, 182);
+  margin-top: calc(5 * var(--base-y));
+
+  h1 {
+    font-size: 5rem;
+    font-weight: 500;
+  }
+
+  span {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 1.4rem;
+    padding: 0.6rem 0.8rem;
+    margin-top: calc(1.7 * var(--base-y));
+    background-color: rgb(71, 118, 2);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+  }
+}
+
+.forms {
+  width: calc(100 * var(--base-x));
+  margin: 0 auto;
+  margin-top: calc(3 * var(--base-y));
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 500;
+  }
+
+  span {
+    font-size: 1.5rem;
+  }
+
+  .allForms {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    row-gap: 4rem;
+    column-gap: 12rem;
+  }
+
+  .formCart {
+    width: calc(25 * var(--base-x));
+    min-height: calc(10 * var(--base-y));
+    padding: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.4rem 0px rgba(0, 0, 0, 0.2);
+
+    .heading {
+      font-size: 2.2rem;
+    }
+
+    .buttons {
+      padding: 0 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      margin-top: calc(2 * var(--base-y));
+
+      span {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      span:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

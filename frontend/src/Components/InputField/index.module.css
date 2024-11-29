@@ -1,0 +1,21 @@
+.container {
+  height: calc(5 * var(--base-y));
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  span {
+    color: #4a7ab9;
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+}

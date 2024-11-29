@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  width: 45%;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  box-shadow: 0 0.2rem 0.5rem -0.1rem rgba(0, 0, 0, 0.2);
+
+  input {
+    border-color: rgb(187, 187, 187);
+    width: 100%;
+    outline: none;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+
+  span {
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+
+  span.edit {
+    color: #4a7ab9;
+    transition-property: "background-color";
+    transition-duration: 1.3s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  span.edit:hover {
+    background-color: #dee5ed;
+  }
+
+  span.delete {
+    color: red;
+    transition-property: "background-color";
+    transition-duration: 1.3s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  span.delete:hover {
+    background-color: #f8d7d7;
+  }
+}
