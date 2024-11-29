@@ -10,3 +10,19 @@
   --base-y: 10px;
   font-size: 10px;
 }
+
+@media (max-width: 1440px) {
+  :root {
+    --base-x: 7px;
+    --base-y: 7px;
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 1025px) {
+  :root {
+    --base-x: 5px;
+    --base-y: 5px;
+    font-size: 5px;
+  }
+}
