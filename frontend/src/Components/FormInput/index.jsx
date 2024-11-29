@@ -6,7 +6,7 @@ import { MdDelete } from "react-icons/md";
 const FormInput = ({ value, index, onEdit, onDelete }) => {
   return (
     <div className={styles.container}>
-      <input type="text" readOnly placeholder={"Title"} defaultValue={value} />
+      <input type="text" readOnly placeholder={value ? value : "Title"} />
       <span className={styles.edit} onClick={() => onEdit(index)}>
         <MdEdit />
       </span>

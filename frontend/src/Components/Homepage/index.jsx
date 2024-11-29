@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 const Homepage = () => {
   const navigate = useNavigate();
   const [forms, setForms] = useState(-1);
+  const [deleteStatus, setDeleteStatus] = useState(false);
 
   useEffect(() => {
     getAllForms().then((res) => {
@@ -28,19 +29,23 @@ const Homepage = () => {
   };
 
   const onUpdate = (id) => {
-    navigate("/form/create", { state: { reason: "update", id } });
+    navigate(`/form/${id}/edit`, { state: { reason: "update", id } });
   };
 
   const onDelete = (id) => {
-    deleteForm(id).then((res) => {
-      if (res.status == 200) {
-        setForms(forms.filter((e, i) => e._id != id));
-        toast.success(res.data.msg);
-      } else {
-        toast.error("Something went wrong while deleting!");
-        console.log(res.data);
-      }
-    });
+    if (!deleteStatus) {
+      setDeleteStatus(true);
+      deleteForm(id).then((res) => {
+        setDeleteStatus(false);
+        if (res.status == 200) {
+          setForms(forms.filter((e, i) => e._id != id));
+          toast.success(res.data.msg);
+        } else {
+          toast.error("Something went wrong while deleting!");
+          console.log(res.data);
+        }
+      });
+    }
   };
   return (
     <div className={styles.container}>

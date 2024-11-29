@@ -5,22 +5,24 @@ import InputField from "../InputField";
 import FormInput from "../FormInput";
 import { createForm, getForm, updateForm } from "../../api/form";
 import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 
 const Create = () => {
   const navigate = useNavigate();
+  const formId = useParams().id;
   const [toggleInputs, setToggleInputs] = useState(false);
   const [editTitle, setEditTitle] = useState(false);
   const [title, setTitle] = useState("");
   const [formData, setFormData] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [status, setStatus] = useState(false);
   const [selForEdit, setSelForEdit] = useState(-1);
   const location = useLocation();
 
   useEffect(() => {
     if (location.state) {
       setLoader(true);
-      getForm(location.state.id).then((res) => {
+      getForm(formId).then((res) => {
         setLoader(false);
         if (res.status == 200) {
           setTitle(res.data.title);
@@ -93,8 +95,10 @@ const Create = () => {
     }
 
     if (err == 0) {
+      setStatus(true);
       if (location.state?.reason == "update") {
-        updateForm(location.state.id, title, formData).then((res) => {
+        updateForm(formId, title, formData).then((res) => {
+          setStatus(false);
           if (res.status == 200) {
             toast.success(res.data.msg);
             navigate("/");
@@ -105,6 +109,7 @@ const Create = () => {
         });
       } else {
         createForm(title, formData).then((res) => {
+          setStatus(false);
           if (res.status == 201) {
             toast.success(res.data.msg);
             navigate("/");
@@ -215,9 +220,13 @@ const Create = () => {
         </div>
       </div>
       {location.state?.reason == "update" ? (
-        <button onClick={handleCreate}>Update Form</button>
+        <button onClick={handleCreate} disabled={status}>
+          {status ? "Loading..." : "Update Form"}
+        </button>
       ) : (
-        <button onClick={handleCreate}>Create Form</button>
+        <button onClick={handleCreate} disabled={status}>
+          {status ? "Loading..." : "Create Form"}
+        </button>
       )}
     </div>
   );

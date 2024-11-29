@@ -15,7 +15,7 @@ function App() {
           <Route element={<Homepage />} path="/" />
           <Route element={<Form />} path="/form">
             <Route element={<Create />} path="create" />
-            <Route element={<Edit />} path=":id/edit" />
+            <Route element={<Create />} path=":id/edit" />
             <Route element={<View />} path=":id" />
           </Route>
         </Routes>
